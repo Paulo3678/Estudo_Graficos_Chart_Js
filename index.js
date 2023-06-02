@@ -135,6 +135,7 @@ function gerarGraficoBarra() {
         }
     };
 
+    // RENDERIZAR GRÁFICO
     let grafico_barra = new Chart(ctx, {
         type: 'bar',
         data: data,
@@ -142,7 +143,40 @@ function gerarGraficoBarra() {
     });
 }
 
+function gerarGraficoBarraHorizontal() {
+    const canvas_grafico_barra_horizontal = document.getElementById('grafico-barra-horizontal');
+    const ctx = canvas_grafico_barra_horizontal.getContext('2d');
+
+    // DADOS DO GRAFICO
+    const data = {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [
+            {
+                label: 'Contatos recebidos',
+                data: [50, 80, 120, 70, 90, 100],
+            }
+        ]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            scales: {
+                x: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    const grafico_barra_horizontal = new Chart(ctx, config);
+}
+
 gerarGraficoPizzaContactadoVsNaoContactado();
 gerarGraficoLinhaFrequencia();
 gerarGraficoLinhaTendencia();
 gerarGraficoBarra();
+gerarGraficoBarraHorizontal();

@@ -14,24 +14,23 @@ body {
     flex-wrap: wrap;
 }
 
+canvas {
+    margin-top: 40px;
+}
+
 #grafico-pizza {
-    width: 300px !important;
-    height: 300px !important;
+    width: 400px !important;
+    height: 400px !important;
 }
 
 #grafico-linha-frequencia {
-    width: 70% !important;
     height: 400px !important;
 }
 
 #grafico-linha-tendencia {
-    margin-top: 40px;
-    width: 100% !important;
     height: 600px !important;
 }
 
-#grafico-barra{
-    margin-top: 40px;
-
+#grafico-barra {
     height: 500px !important;
 }
