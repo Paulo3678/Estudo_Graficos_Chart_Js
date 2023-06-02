@@ -23,3 +23,9 @@ body {
     width: 70% !important;
     height: 400px !important;
 }
+
+#grafico-linha-tendencia {
+    margin-top: 40px;
+    width: 100% !important;
+    height: 600px !important;
+}

@@ -47,6 +47,70 @@ function gerarGraficoLinhaFrequencia() {
     });
 }
 
+function gerarGraficoLinhaTendencia() {
+    let canvas_linha_tendencia = document.getElementById('grafico-linha-tendencia');
+    let ctx = canvas_linha_tendencia.getContext('2d');
+
+    // Define os dados para o gráfico de linha com tendência
+    let dados = [
+        // x = mês; y= nº de contatos
+        { x: 'Jan', y: 10 },
+        { x: 'Fev', y: 15 },
+        { x: 'Mar', y: 20 },
+        { x: 'Abr', y: 12 },
+        { x: 'Mai', y: 18 },
+        { x: 'Jun', y: 22 },
+        { x: 'Jul', y: 25 },
+        { x: 'Ago', y: 30 },
+        { x: 'Set', y: 28 },
+        { x: 'Out', y: 35 },
+        { x: 'Nov', y: 40 },
+        { x: 'Dez', y: 1 }
+    ];
+
+    // CALCULA A LINHA DE TENDÊNCIA
+    let result = regression.linear(dados.map(d => [dados.indexOf(d) + 1, d.y]));
+
+    // CONVERTE OS DADOS DA LINHA DE TENDÊNCIA NO FORMATO ADEQUADO PARA O GRÁFICO
+    let tendencia = {
+        label: 'Tendência',
+        data: [
+            { x: 1, y: result.predict(1)[1] },
+            { x: dados.length, y: result.predict(dados.length)[1] }
+        ],
+        fill: false
+    };
+
+    // DEFINE OS DADOS PARA O GRÁFICO DE LINHA COM OS DADOS E ALINHA DE TENDÊNCIA
+    let data = {
+        labels: dados.map(d => d.x),
+        datasets: [
+            {
+                label: 'Contatos Realizados',
+                data: dados.map(d => d.y),
+                fill: false
+            },
+            tendencia
+        ]
+    };
+
+    let options = {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    // RENDERIZAR GRÁFICO
+    let grafico_linha_tendencia = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+}
 
 gerarGraficoPizzaContactadoVsNaoContactado();
 gerarGraficoLinhaFrequencia();
+gerarGraficoLinhaTendencia();
