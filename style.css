@@ -9,9 +9,17 @@ body {
     padding: 10px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
-#grafico-pizza{
+#grafico-pizza {
     width: 300px !important;
     height: 300px !important;
+}
+
+#grafico-linha-frequencia {
+    width: 70% !important;
+    height: 400px !important;
 }
