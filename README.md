@@ -7,5 +7,4 @@
     <li>Gráfico linha tendência</li>
     <li>Gráfico de barra</li>
     <li>Gráfico de barra horizontal</li>
-    <li>Gráfico de caixa</li>
 </ul>
