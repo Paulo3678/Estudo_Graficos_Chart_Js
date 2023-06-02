@@ -29,3 +29,9 @@ body {
     width: 100% !important;
     height: 600px !important;
 }
+
+#grafico-barra{
+    margin-top: 40px;
+
+    height: 500px !important;
+}

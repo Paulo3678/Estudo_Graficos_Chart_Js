@@ -111,6 +111,38 @@ function gerarGraficoLinhaTendencia() {
     });
 }
 
+function gerarGraficoBarra() {
+    let canvas_grafico_barra = document.getElementById('grafico-barra');
+    let ctx = canvas_grafico_barra.getContext('2d');
+
+    // DADOS DO GRÁFICO
+    let data = {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [
+            {
+                label: 'Clientes contactados',
+                data: [50, 80, 120, 70, 90, 100],
+            }
+        ]
+    };
+
+    let options = {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    let grafico_barra = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+}
+
 gerarGraficoPizzaContactadoVsNaoContactado();
 gerarGraficoLinhaFrequencia();
 gerarGraficoLinhaTendencia();
+gerarGraficoBarra();
